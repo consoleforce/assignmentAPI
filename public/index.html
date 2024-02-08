@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex Maps Marker with Dynamic Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en_US&amp;apikey=3bb6e221-f2ab-43ee-afc4-34e5ad003935
+    "></script>
+    <div id="map"></div>
+    <script>
+        
+        const latitude = 51.09091236674646;
+        const longitude = 71.41791635287882;
+    
+         ymaps.ready(init);
+    
+        function init() {
+            var map = new ymaps.Map('map', {
+                center: [latitude, longitude], // Set the center of the map
+                zoom: 17 // Set the zoom level to 17
+            });
+    
+            // Add marker to the map
+            var myPlacemark = new ymaps.Placemark([latitude, longitude], {}, {
+                iconLayout: 'default#image',
+                iconImageHref: 'https://pngicon.ru/file/uploads/geometka.png', // Replace marker.png with your marker image
+                iconImageSize: [30, 42],
+                iconImageOffset: [-15, -42]
+            });
+    
+            map.geoObjects.add(myPlacemark);
+        }
+    </script>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
